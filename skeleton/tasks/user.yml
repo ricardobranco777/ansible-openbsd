@@ -1,0 +1,16 @@
+---
+- name: Add user to needed groups
+  user:
+    name: ricardo
+    groups: wheel,sudo
+    append: yes
+    shell: /usr/local/bin/bash
+  tags: ['user']
+
+- name: Fix HOME permissions
+  file:
+    path: /home/ricardo
+    state: directory
+    owner: ricardo
+    mode: '0700'
+  tags: ['user']

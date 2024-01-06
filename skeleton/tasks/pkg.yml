@@ -1,0 +1,32 @@
+---
+- name: Install required packages
+  openbsd_pkg:
+    name:
+      - bash
+      - bash-completion
+      - curl
+      - coreutils
+      - gawk
+      - ggrep
+      - git
+      - gmake
+      - gnupg
+      - gsed
+      - gtar-1.35
+      - mc
+      - nmap
+      - python3
+      - rsync-3.2.7p1
+      - screen-4.9.1
+      - sudo-1.9.14.2
+      - vim-9.0.2035-no_x11-python3
+      - wget
+    state: present
+  tags: ['pkg']
+
+#- name: Add ports collection
+#  git:
+#    repo: https://git.FreeBSD.org/ports.git
+#    dest: /usr/ports
+#    depth: 1
+#  tags: ['ports']

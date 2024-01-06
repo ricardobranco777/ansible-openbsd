@@ -1,0 +1,41 @@
+---
+- name: Configure doas
+  copy:
+    src: doas.conf
+    dest: /etc/doas.conf
+    owner: root
+    group: wheel
+    mode: 0600
+  tags: ['security']
+
+- name: Create sudo group
+  group:
+    name: sudo
+    system: true
+  tags: ['security', 'sudo']
+
+- name: Create /etc/sudoers.d directory with mode 750
+  file:
+    path: /etc/sudoers.d
+    state: directory
+    owner: root
+    group: wheel
+    mode: '0750'
+  tags: ['security', 'sudo']
+
+- name: Include /etc/sudoers.d
+  lineinfile:
+    path: /etc/sudoers
+    line: '#includedir /etc/sudoers.d'
+    regexp: '^(#|@)includedir /etc/sudoers.d'
+    insertafter: EOF
+  tags: ['security', 'sudo']
+
+- name: Configure sudo
+  copy:
+    src: sudoers.d/custom
+    dest: /etc/sudoers.d/custom
+    owner: root
+    group: wheel
+    mode: 0600
+  tags: ['security', 'sudo']

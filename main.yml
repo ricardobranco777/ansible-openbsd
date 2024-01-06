@@ -1,0 +1,6 @@
+---
+- name: Configure OpenBSD
+  hosts: all
+
+  roles:
+    - role: skeleton
