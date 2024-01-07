@@ -14,3 +14,18 @@ Run:
 syspatch
 pkg_add -v python3
 ```
+
+Check:
+`ansible-playbook -v -C -i inventory main.yml`
+
+Run with:
+`ansible-playbook -v -i inventory main.yml`
+
+TODO
+
+- As user:
+
+```
+cd /usr
+cvs -qd anoncvs@anoncvs.ca.openbsd.org:/cvs checkout -rOPENBSD_7_4 -P src
+```

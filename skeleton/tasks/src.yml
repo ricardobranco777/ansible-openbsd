@@ -1,0 +1,43 @@
+---
+- name: Add cvs user
+  user:
+    name: cvs
+    group: cvs
+    home: /home/cvs
+  tags: ['cvs']
+
+- name: Create /var/db/reposync
+  file:
+    path: /var/db/reposync
+    state: directory
+    owner: cvs
+    group: wheel
+    mode: '0755'
+  tags: ['cvs']
+
+- name: reposync
+  shell: su -m cvs -c "reposync rsync://ftp.hostserver.de/cvs/ /home/cvs"
+  args:
+    creates: /home/cvs/CVSROOT
+  tags: ['cvs']
+
+- name: Populate /usr/src
+  shell: su -m ricardo -c "cvs -qd /home/cvs checkout -rOPENBSD_7_4 -P src"
+  args:
+    chdir: /usr
+    creates: /usr/src/CVS
+
+- name: Create /usr/ports
+  file:
+    path: /usr/ports
+    state: directory
+    owner: root
+    group: wsrc
+    mode: '0775'
+  tags: ['ports']
+
+- name: Populate /usr/ports
+  shell: su -m ricardo -c "cvs -qd /home/cvs checkout -rOPENBSD_7_4 -P ports"
+  args:
+    chdir: /usr
+    creates: /usr/ports/CVS
