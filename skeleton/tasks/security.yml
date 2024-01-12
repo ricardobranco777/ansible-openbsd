@@ -1,4 +1,25 @@
 ---
+- name: Configure secure level
+  copy:
+    src: rc.securelevel
+    dest: /etc/rc.securelevel
+    owner: root
+    group: wheel
+    mode: 0600
+  tags: ['security']
+
+# NOTE: We can't use Ansible's sysctl module
+# because NetBSD's sysctl lacks -p option
+- name: Security sysctls
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: "{{ item.line }}"
+    regexp: "{{ item.regexp }}"
+  loop:
+    - line: kern.allowkmem=1
+      regexp: ^kern\.allowkmem=
+  tags: ['security', 'sysctl']
+
 - name: Configure doas
   copy:
     src: doas.conf
