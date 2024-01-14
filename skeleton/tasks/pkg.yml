@@ -6,6 +6,7 @@
       - bash-completion
       - curl
       - coreutils
+      - findutils
       - gawk
       - ggrep
       - git
