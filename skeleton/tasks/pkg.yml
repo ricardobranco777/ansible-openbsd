@@ -25,3 +25,16 @@
       - wget
     state: present
   tags: ['pkg']
+
+- name: Add ports collection
+  shell: git clone --depth 1 --branch master https://github.com/openbsd/ports /usr/ports
+  args:
+    creates: /usr/ports
+  tags: ['ports']
+
+#- name: Add ports collection
+#  git:
+#    repo: https://github.com/openbsd/ports
+#    dest: /usr/ports
+#    depth: 1
+#  tags: ['ports']

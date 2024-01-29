@@ -1,43 +1,32 @@
 ---
-- name: Add cvs user
-  user:
-    name: cvs
-    group: cvs
-    home: /home/cvs
-  tags: ['cvs']
-
-- name: Create /var/db/reposync
-  file:
-    path: /var/db/reposync
-    state: directory
-    owner: cvs
-    group: wheel
-    mode: '0755'
-  tags: ['cvs']
-
-- name: reposync
-  shell: su -m cvs -c "reposync rsync://ftp.hostserver.de/cvs/ /home/cvs"
+- name: Add src collection
+  shell: git clone --depth 1 --branch master https://github.com/openbsd/src /usr/src
   args:
-    creates: /home/cvs/CVSROOT
-  tags: ['cvs']
+    creates: /usr/src
+  tags: ['src']
 
-- name: Populate /usr/src
-  shell: su -m ricardo -c "cvs -qd /home/cvs checkout -rOPENBSD_7_4 -P src"
-  args:
-    chdir: /usr
-    creates: /usr/src/CVS
+#- name: Add src collection
+#  git:
+#    repo: https://github.com/openbsd/src
+#    dest: /usr/src
+#    depth: 1
+#    version: master
+#  tags: ['src']
 
-- name: Create /usr/ports
-  file:
-    path: /usr/ports
-    state: directory
+- name: Copy /etc/mk.conf
+  copy:
+    src: mk.conf
+    dest: /etc/mk.conf
     owner: root
-    group: wsrc
-    mode: '0775'
-  tags: ['ports']
+    group: wheel
+    mode: 0644
+  tags: ['src']
 
-- name: Populate /usr/ports
-  shell: su -m ricardo -c "cvs -qd /home/cvs checkout -rOPENBSD_7_4 -P ports"
-  args:
-    chdir: /usr
-    creates: /usr/ports/CVS
+- name: Copy CUSTOM kernel configuration
+  copy:
+    src: CUSTOM
+    dest: /usr/src/sys/arch/amd64/conf/CUSTOM
+#    owner: root
+#    group: wheel
+    mode: 0644
+  tags: ['src']
