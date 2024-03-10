@@ -20,3 +20,6 @@ Check:
 
 Run with:
 `ansible-playbook -v -i inventory main.yml`
+
+To upgrade packages (add `-D snap` if running CURRENT):
+`pkg_add [-Dsnap] -u`
