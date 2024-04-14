@@ -11,6 +11,7 @@ NOTES:
 Run:
 
 ```
+fw_update -a
 syspatch
 pkg_add -v python3
 ```
@@ -21,5 +22,8 @@ Check:
 Run with:
 `ansible-playbook -v -i inventory main.yml`
 
+To upgrade to CURRENT:
+`sysupgrade -s`
+
 To upgrade packages (add `-D snap` if running CURRENT):
-`pkg_add [-Dsnap] -u`
+`pkg_add -u`
