@@ -9,7 +9,6 @@
   tags: ['security']
 
 # NOTE: We can't use Ansible's sysctl module
-# because NetBSD's sysctl lacks -p option
 - name: Security sysctls
   lineinfile:
     path: /etc/sysctl.conf
@@ -18,6 +17,8 @@
   loop:
     - line: kern.allowkmem=1
       regexp: ^kern\.allowkmem=
+    - line: hw.smt=1
+      regexp: ^hw\.smt=
   tags: ['security', 'sysctl']
 
 - name: Configure doas
