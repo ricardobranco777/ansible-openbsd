@@ -4,4 +4,3 @@
 - include_tasks: security.yml
 - include_tasks: user.yml
 - include_tasks: src.yml
-- include_tasks: python.yml
