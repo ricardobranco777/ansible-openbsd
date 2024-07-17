@@ -1,0 +1,8 @@
+---
+- name: Configure services
+  lineinfile:
+    path: /etc/rc.conf.local
+    line: "{{ item.line }}"
+  loop:
+    - line: library_aslr=NO
+  tags: ['config']
