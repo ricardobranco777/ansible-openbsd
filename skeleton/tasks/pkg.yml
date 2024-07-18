@@ -20,8 +20,7 @@
       - reposync
       - rsync-3.2.7p1
       - screen-4.9.1
-      - sudo-1.9.14.2
-      - vim-9.0.2035-no_x11-python3
+      - vim-9.1.139-no_x11
       - wget
     state: present
   tags: ['pkg']
