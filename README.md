@@ -14,6 +14,7 @@ Run:
 fw_update -a
 syspatch
 pkg_add -v python3
+rcctl restart sshd
 ```
 
 Check:
