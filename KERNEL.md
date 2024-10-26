@@ -7,6 +7,22 @@ sysupgrade -s
 sudo pkg_add -u
 ```
 
+Tracking -stable:
+
+```
+wget https://ftp.openbsd.org/pub/OpenBSD/7.6/src.tar.tgz
+tar -zxf src.tar.gz -C /usr/src/
+cd /usr/
+cvs -qd anoncvs@ftp.hostserver.de:/cvs checkout -rOPENBSD_7_6 -P src
+```
+
+Updating the above:
+
+```
+cd /usr/src
+cvs -q up -Pd -rOPENBSD_7_6
+```
+
 Compile kernel:
 
 ```
