@@ -2,7 +2,7 @@
 - name: Add user to needed groups
   user:
     name: ricardo
-    groups: wheel,sudo,wsrc,wobj
+    groups: wheel,wsrc,wobj
     append: yes
     shell: /usr/local/bin/bash
   tags: ['user']

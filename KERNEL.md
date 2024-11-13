@@ -10,8 +10,7 @@ sudo pkg_add -u
 Tracking -stable:
 
 ```
-wget https://ftp.openbsd.org/pub/OpenBSD/7.6/src.tar.tgz
-tar -zxf src.tar.gz -C /usr/src/
+wget -O- https://ftp.openbsd.org/pub/OpenBSD/7.6/src.tar.gz | tar -zxf - -C /usr/src/
 cd /usr/
 cvs -qd anoncvs@ftp.hostserver.de:/cvs checkout -rOPENBSD_7_6 -P src
 ```
@@ -33,6 +32,7 @@ make obj
 make config
 make -j8
 sudo make install
+```
 
 Compile world (not worth it if you have latest snapshot):
 

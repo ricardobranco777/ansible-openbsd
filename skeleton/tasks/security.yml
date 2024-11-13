@@ -30,12 +30,6 @@
     mode: 0600
   tags: ['security']
 
-- name: Create sudo group
-  group:
-    name: sudo
-    system: true
-  tags: ['security', 'sudo']
-
 - name: Create /etc/sudoers.d directory with mode 750
   file:
     path: /etc/sudoers.d
