@@ -1,0 +1,6 @@
+all:
+  hosts:
+    - openbsd.local
+    - openbsdx.local
+  vars:
+    target_user: "{{ ansible_user_id }}"
