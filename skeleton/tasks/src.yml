@@ -3,7 +3,6 @@
   shell: git clone --depth 1 --branch master https://github.com/openbsd/src /usr/src
   args:
     creates: /usr/src
-  tags: ['src']
 
 #- name: Add src collection
 #  git:
@@ -11,7 +10,6 @@
 #    dest: /usr/src
 #    depth: 1
 #    version: master
-#  tags: ['src']
 
 - name: Copy /etc/mk.conf
   copy:
@@ -20,7 +18,6 @@
     owner: root
     group: wheel
     mode: 0644
-  tags: ['src']
 
 - name: Copy CUSTOM kernel configuration
   copy:
@@ -29,4 +26,3 @@
 #    owner: root
 #    group: wheel
     mode: 0644
-  tags: ['src']

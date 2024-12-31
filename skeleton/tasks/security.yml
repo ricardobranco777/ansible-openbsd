@@ -6,7 +6,6 @@
     owner: root
     group: wheel
     mode: 0600
-  tags: ['security']
 
 # NOTE: We can't use Ansible's sysctl module
 - name: Security sysctls
@@ -19,7 +18,6 @@
       regexp: ^kern\.allowkmem=
     - line: hw.smt=1
       regexp: ^hw\.smt=
-  tags: ['security', 'sysctl']
 
 - name: Configure doas
   copy:
@@ -28,7 +26,6 @@
     owner: root
     group: wheel
     mode: 0600
-  tags: ['security']
 
 - name: Create /etc/sudoers.d directory with mode 750
   file:
@@ -37,7 +34,6 @@
     owner: root
     group: wheel
     mode: '0750'
-  tags: ['security', 'sudo']
 
 - name: Include /etc/sudoers.d
   lineinfile:
@@ -45,7 +41,6 @@
     line: '#includedir /etc/sudoers.d'
     regexp: '^(#|@)includedir /etc/sudoers.d'
     insertafter: EOF
-  tags: ['security', 'sudo']
 
 - name: Configure sudo
   copy:
@@ -54,4 +49,3 @@
     owner: root
     group: wheel
     mode: 0600
-  tags: ['security', 'sudo']
