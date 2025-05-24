@@ -12,6 +12,7 @@
       - git
       - gmake
       - gnupg
+      - gperf
       - gsed
       - gtar-1.35
       - mc
