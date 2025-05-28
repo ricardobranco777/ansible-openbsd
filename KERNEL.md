@@ -10,16 +10,16 @@ sudo pkg_add -u
 Tracking -stable:
 
 ```
-wget -O- https://ftp.openbsd.org/pub/OpenBSD/7.6/src.tar.gz | tar -zxf - -C /usr/src/
+wget -O- https://ftp.openbsd.org/pub/OpenBSD/7.7/src.tar.gz | tar -zxf - -C /usr/src/
 cd /usr/
-cvs -qd anoncvs@ftp.hostserver.de:/cvs checkout -rOPENBSD_7_6 -P src
+cvs -qd anoncvs@ftp.hostserver.de:/cvs checkout -rOPENBSD_7_7 -P src
 ```
 
 Updating the above:
 
 ```
 cd /usr/src
-cvs -q up -Pd -rOPENBSD_7_6
+cvs -q up -Pd -rOPENBSD_7_7
 ```
 
 Compile kernel:
