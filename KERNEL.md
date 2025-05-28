@@ -30,7 +30,7 @@ config CUSTOM
 cd ../compile/CUSTOM
 make obj
 make config
-make -j8
+make -j$(sysctl hw.ncpuonline)
 sudo make install
 ```
 
@@ -39,7 +39,7 @@ Compile world (not worth it if you have latest snapshot):
 ```
 cd /usr/src
 make obj
-make -j8 build
+make -j$(sysctl hw.ncpuonline) build
 sysmerge
 cd /dev && ./MAKEDEV all
 ```
