@@ -39,7 +39,7 @@ Compile world (not worth it if you have latest snapshot):
 ```
 cd /usr/src
 make obj
-make -j$(sysctl hw.ncpuonline) build
-sysmerge
-cd /dev && ./MAKEDEV all
+sudo make -j$(sysctl hw.ncpuonline) build
+sudo sysmerge
+cd /dev && sudo ./MAKEDEV all
 ```
