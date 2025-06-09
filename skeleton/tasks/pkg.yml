@@ -12,15 +12,12 @@
       - git
       - gmake
       - gnupg
-      - gperf
       - gsed
-      - gtar-1.35
+      - gtar-1.35p0
       - mc
-      - nmap
-      - python3
       - reposync
-      - rsync-3.2.7p1
-      - vim-9.1.139-no_x11
+      - rsync-3.4.1
+      - vim-9.1.1265-no_x11
       - wget
     state: present
 
