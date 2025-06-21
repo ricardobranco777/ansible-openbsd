@@ -30,7 +30,7 @@ config CUSTOM
 cd ../compile/CUSTOM
 make obj
 make config
-make -j$(sysctl hw.ncpuonline)
+make -j$(sysctl -n hw.ncpuonline)
 sudo make install
 ```
 

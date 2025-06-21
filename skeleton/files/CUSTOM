@@ -1,5 +1,6 @@
 include "arch/amd64/conf/GENERIC.MP"
 
-option EXT2FS_SYSTEM_FLAGS
+# Removed in 438d90a63021be5b37606f99be27de23cf68e986
+#option EXT2FS_SYSTEM_FLAGS
 
 rmoption NTFS
