@@ -1,4 +1,7 @@
 
+NOTE: You may want to increase the default datasize-cur & datasize-max in /etc/login.conf
+to avoid "out of memory" issues compiling with LLVM.
+
 Tracking -current:
 
 ```
