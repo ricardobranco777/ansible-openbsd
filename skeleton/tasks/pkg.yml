@@ -19,11 +19,6 @@
       - wget
     state: present
 
-#- name: Add bash completion to git
-#  get_url:
-#    url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-#    dest: /usr/local/share/bash-completion/completions/git
-
 - name: Add ports collection
   shell: git clone --depth 1 --branch master https://github.com/openbsd/ports /usr/ports
   args:
