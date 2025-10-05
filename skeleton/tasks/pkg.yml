@@ -14,6 +14,7 @@
       - go-1.25.1
       - gsed
       - gtar-1.35p1
+      # To test: cd /usr/src/regress/lib/libc/illumos/oclo ; make
       - illumos-os-tests
       - rsync-3.4.1
       - vim-9.1.1265-no_x11
